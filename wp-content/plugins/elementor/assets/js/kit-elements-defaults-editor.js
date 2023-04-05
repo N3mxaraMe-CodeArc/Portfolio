@@ -28,15 +28,13 @@ function loadElementsDefaults() {
 function _loadElementsDefaults() {
   _loadElementsDefaults = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
     return _regenerator.default.wrap(function _callee$(_context) {
-      while (1) {
-        switch (_context.prev = _context.next) {
-          case 0:
-            $e.data.cache.storage.removeItem(NAMESPACE);
-            return _context.abrupt("return", $e.data.get("".concat(NAMESPACE, "/index")));
-          case 2:
-          case "end":
-            return _context.stop();
-        }
+      while (1) switch (_context.prev = _context.next) {
+        case 0:
+          $e.data.cache.storage.removeItem(NAMESPACE);
+          return _context.abrupt("return", $e.data.get("".concat(NAMESPACE, "/index")));
+        case 2:
+        case "end":
+          return _context.stop();
       }
     }, _callee);
   }));
@@ -52,22 +50,20 @@ function updateElementDefaults(_x, _x2) {
 function _updateElementDefaults() {
   _updateElementDefaults = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2(type, settings) {
     return _regenerator.default.wrap(function _callee2$(_context2) {
-      while (1) {
-        switch (_context2.prev = _context2.next) {
-          case 0:
-            _context2.next = 2;
-            return $e.data.update("".concat(NAMESPACE, "/index"), {
-              settings: settings
-            }, {
-              type: type
-            });
-          case 2:
-            _context2.next = 4;
-            return loadElementsDefaults();
-          case 4:
-          case "end":
-            return _context2.stop();
-        }
+      while (1) switch (_context2.prev = _context2.next) {
+        case 0:
+          _context2.next = 2;
+          return $e.data.update("".concat(NAMESPACE, "/index"), {
+            settings: settings
+          }, {
+            type: type
+          });
+        case 2:
+          _context2.next = 4;
+          return loadElementsDefaults();
+        case 4:
+        case "end":
+          return _context2.stop();
       }
     }, _callee2);
   }));
@@ -79,20 +75,18 @@ function deleteElementDefaults(_x3) {
 function _deleteElementDefaults() {
   _deleteElementDefaults = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3(type) {
     return _regenerator.default.wrap(function _callee3$(_context3) {
-      while (1) {
-        switch (_context3.prev = _context3.next) {
-          case 0:
-            _context3.next = 2;
-            return $e.data.delete("".concat(NAMESPACE, "/index"), {
-              type: type
-            });
-          case 2:
-            _context3.next = 4;
-            return loadElementsDefaults();
-          case 4:
-          case "end":
-            return _context3.stop();
-        }
+      while (1) switch (_context3.prev = _context3.next) {
+        case 0:
+          _context3.next = 2;
+          return $e.data.delete("".concat(NAMESPACE, "/index"), {
+            type: type
+          });
+        case 2:
+          _context3.next = 4;
+          return loadElementsDefaults();
+        case 4:
+        case "end":
+          return _context3.stop();
       }
     }, _callee3);
   }));
@@ -143,31 +137,29 @@ var ConfirmCreation = /*#__PURE__*/function (_$e$modules$editor$Co) {
       var _apply = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee(_ref) {
         var container, confirmCreationDialog;
         return _regenerator.default.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                container = _ref.container;
-                confirmCreationDialog = (0, _confirmCreationDialog.getConfirmCreationDialog)({
-                  onConfirm: function onConfirm() {
-                    return $e.run('kit-elements-defaults/create', {
-                      container: container
-                    });
-                  }
-                });
-                if (!confirmCreationDialog.doNotShowAgain) {
-                  _context.next = 5;
-                  break;
+          while (1) switch (_context.prev = _context.next) {
+            case 0:
+              container = _ref.container;
+              confirmCreationDialog = (0, _confirmCreationDialog.getConfirmCreationDialog)({
+                onConfirm: function onConfirm() {
+                  return $e.run('kit-elements-defaults/create', {
+                    container: container
+                  });
                 }
-                $e.run('kit-elements-defaults/create', {
-                  container: container
-                });
-                return _context.abrupt("return");
-              case 5:
-                confirmCreationDialog.show();
-              case 6:
-              case "end":
-                return _context.stop();
-            }
+              });
+              if (!confirmCreationDialog.doNotShowAgain) {
+                _context.next = 5;
+                break;
+              }
+              $e.run('kit-elements-defaults/create', {
+                container: container
+              });
+              return _context.abrupt("return");
+            case 5:
+              confirmCreationDialog.show();
+            case 6:
+            case "end":
+              return _context.stop();
           }
         }, _callee);
       }));
@@ -228,46 +220,44 @@ var Create = /*#__PURE__*/function (_$e$modules$editor$Co) {
       var _apply = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee(_ref) {
         var container, type, previousDefaults, newDefaults;
         return _regenerator.default.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                container = _ref.container;
-                $e.internal('panel/state-loading');
-                type = (0, _utils.extractElementType)(container.model), previousDefaults = (0, _api.getElementDefaults)(type), newDefaults = (0, _extractContainerSettings.default)(container);
-                _context.prev = 3;
-                _context.next = 6;
-                return (0, _api.updateElementDefaults)(type, newDefaults);
-              case 6:
-                elementor.notifications.showToast({
-                  message: __('Default settings changed.', 'elementor'),
-                  buttons: [{
-                    name: 'undo',
-                    text: __('Undo', 'elementor'),
-                    callback: function callback() {
-                      $e.run('kit-elements-defaults/restore', {
-                        type: type,
-                        settings: previousDefaults
-                      });
-                    }
-                  }]
-                });
-                _context.next = 13;
-                break;
-              case 9:
-                _context.prev = 9;
-                _context.t0 = _context["catch"](3);
-                elementor.notifications.showToast({
-                  message: __('An error occurred.', 'elementor')
-                });
-                throw _context.t0;
-              case 13:
-                _context.prev = 13;
-                $e.internal('panel/state-ready');
-                return _context.finish(13);
-              case 16:
-              case "end":
-                return _context.stop();
-            }
+          while (1) switch (_context.prev = _context.next) {
+            case 0:
+              container = _ref.container;
+              $e.internal('panel/state-loading');
+              type = (0, _utils.extractElementType)(container.model), previousDefaults = (0, _api.getElementDefaults)(type), newDefaults = (0, _extractContainerSettings.default)(container);
+              _context.prev = 3;
+              _context.next = 6;
+              return (0, _api.updateElementDefaults)(type, newDefaults);
+            case 6:
+              elementor.notifications.showToast({
+                message: __('Default settings changed.', 'elementor'),
+                buttons: [{
+                  name: 'undo',
+                  text: __('Undo', 'elementor'),
+                  callback: function callback() {
+                    $e.run('kit-elements-defaults/restore', {
+                      type: type,
+                      settings: previousDefaults
+                    });
+                  }
+                }]
+              });
+              _context.next = 13;
+              break;
+            case 9:
+              _context.prev = 9;
+              _context.t0 = _context["catch"](3);
+              elementor.notifications.showToast({
+                message: __('An error occurred.', 'elementor')
+              });
+              throw _context.t0;
+            case 13:
+              _context.prev = 13;
+              $e.internal('panel/state-ready');
+              return _context.finish(13);
+            case 16:
+            case "end":
+              return _context.stop();
           }
         }, _callee, null, [[3, 9, 13, 16]]);
       }));
@@ -321,35 +311,33 @@ var Delete = /*#__PURE__*/function (_$e$modules$CommandBa) {
       var _apply = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee(_ref) {
         var type;
         return _regenerator.default.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                type = _ref.type;
-                $e.internal('panel/state-loading');
-                _context.prev = 2;
-                _context.next = 5;
-                return (0, _api.deleteElementDefaults)(type);
-              case 5:
-                elementor.notifications.showToast({
-                  message: __('Default settings has been reset.', 'elementor')
-                });
-                _context.next = 12;
-                break;
-              case 8:
-                _context.prev = 8;
-                _context.t0 = _context["catch"](2);
-                elementor.notifications.showToast({
-                  message: __('An error occurred.', 'elementor')
-                });
-                throw _context.t0;
-              case 12:
-                _context.prev = 12;
-                $e.internal('panel/state-ready');
-                return _context.finish(12);
-              case 15:
-              case "end":
-                return _context.stop();
-            }
+          while (1) switch (_context.prev = _context.next) {
+            case 0:
+              type = _ref.type;
+              $e.internal('panel/state-loading');
+              _context.prev = 2;
+              _context.next = 5;
+              return (0, _api.deleteElementDefaults)(type);
+            case 5:
+              elementor.notifications.showToast({
+                message: __('Default settings has been reset.', 'elementor')
+              });
+              _context.next = 12;
+              break;
+            case 8:
+              _context.prev = 8;
+              _context.t0 = _context["catch"](2);
+              elementor.notifications.showToast({
+                message: __('An error occurred.', 'elementor')
+              });
+              throw _context.t0;
+            case 12:
+              _context.prev = 12;
+              $e.internal('panel/state-ready');
+              return _context.finish(12);
+            case 15:
+            case "end":
+              return _context.stop();
           }
         }, _callee, null, [[2, 8, 12, 15]]);
       }));
@@ -447,35 +435,33 @@ var Restore = /*#__PURE__*/function (_$e$modules$CommandBa) {
       var _apply = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee(_ref) {
         var type, settings;
         return _regenerator.default.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                type = _ref.type, settings = _ref.settings;
-                $e.internal('panel/state-loading');
-                _context.prev = 2;
-                _context.next = 5;
-                return (0, _api.updateElementDefaults)(type, settings);
-              case 5:
-                elementor.notifications.showToast({
-                  message: __('Previous settings restored.', 'elementor')
-                });
-                _context.next = 12;
-                break;
-              case 8:
-                _context.prev = 8;
-                _context.t0 = _context["catch"](2);
-                elementor.notifications.showToast({
-                  message: __('An error occurred.', 'elementor')
-                });
-                throw _context.t0;
-              case 12:
-                _context.prev = 12;
-                $e.internal('panel/state-ready');
-                return _context.finish(12);
-              case 15:
-              case "end":
-                return _context.stop();
-            }
+          while (1) switch (_context.prev = _context.next) {
+            case 0:
+              type = _ref.type, settings = _ref.settings;
+              $e.internal('panel/state-loading');
+              _context.prev = 2;
+              _context.next = 5;
+              return (0, _api.updateElementDefaults)(type, settings);
+            case 5:
+              elementor.notifications.showToast({
+                message: __('Previous settings restored.', 'elementor')
+              });
+              _context.next = 12;
+              break;
+            case 8:
+              _context.prev = 8;
+              _context.t0 = _context["catch"](2);
+              elementor.notifications.showToast({
+                message: __('An error occurred.', 'elementor')
+              });
+              throw _context.t0;
+            case 12:
+              _context.prev = 12;
+              $e.internal('panel/state-ready');
+              return _context.finish(12);
+            case 15:
+            case "end":
+              return _context.stop();
           }
         }, _callee, null, [[2, 8, 12, 15]]);
       }));
@@ -994,9 +980,7 @@ module.exports = wp.i18n;
 
 function _arrayLikeToArray(arr, len) {
   if (len == null || len > arr.length) len = arr.length;
-  for (var i = 0, arr2 = new Array(len); i < len; i++) {
-    arr2[i] = arr[i];
-  }
+  for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i];
   return arr2;
 }
 module.exports = _arrayLikeToArray, module.exports.__esModule = true, module.exports["default"] = module.exports;
@@ -1245,9 +1229,7 @@ function _iterableToArrayLimit(arr, i) {
       if (_x = (_i = _i.call(arr)).next, 0 === i) {
         if (Object(_i) !== _i) return;
         _n = !1;
-      } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0) {
-        ;
-      }
+      } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0);
     } catch (err) {
       _d = !0, _e = err;
     } finally {
@@ -1484,9 +1466,7 @@ function _regeneratorRuntime() {
       if (!isNaN(iterable.length)) {
         var i = -1,
           next = function next() {
-            for (; ++i < iterable.length;) {
-              if (hasOwn.call(iterable, i)) return next.value = iterable[i], next.done = !1, next;
-            }
+            for (; ++i < iterable.length;) if (hasOwn.call(iterable, i)) return next.value = iterable[i], next.done = !1, next;
             return next.value = undefined, next.done = !0, next;
           };
         return next.next = next;
@@ -1532,9 +1512,7 @@ function _regeneratorRuntime() {
   }), exports.keys = function (val) {
     var object = Object(val),
       keys = [];
-    for (var key in object) {
-      keys.push(key);
-    }
+    for (var key in object) keys.push(key);
     return keys.reverse(), function next() {
       for (; keys.length;) {
         var key = keys.pop();
@@ -1545,9 +1523,7 @@ function _regeneratorRuntime() {
   }, exports.values = values, Context.prototype = {
     constructor: Context,
     reset: function reset(skipTempReset) {
-      if (this.prev = 0, this.next = 0, this.sent = this._sent = undefined, this.done = !1, this.delegate = null, this.method = "next", this.arg = undefined, this.tryEntries.forEach(resetTryEntry), !skipTempReset) for (var name in this) {
-        "t" === name.charAt(0) && hasOwn.call(this, name) && !isNaN(+name.slice(1)) && (this[name] = undefined);
-      }
+      if (this.prev = 0, this.next = 0, this.sent = this._sent = undefined, this.done = !1, this.delegate = null, this.method = "next", this.arg = undefined, this.tryEntries.forEach(resetTryEntry), !skipTempReset) for (var name in this) "t" === name.charAt(0) && hasOwn.call(this, name) && !isNaN(+name.slice(1)) && (this[name] = undefined);
     },
     stop: function stop() {
       this.done = !0;

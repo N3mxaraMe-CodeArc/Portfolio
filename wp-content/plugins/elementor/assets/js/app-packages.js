@@ -1585,41 +1585,39 @@ function useAjax() {
   var runRequest = /*#__PURE__*/function () {
     var _ref = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee(config) {
       return _regenerator.default.wrap(function _callee$(_context) {
-        while (1) {
-          switch (_context.prev = _context.next) {
-            case 0:
-              return _context.abrupt("return", new Promise(function (resolve, reject) {
-                var formData = new FormData();
-                if (config.data) {
-                  for (var key in config.data) {
-                    formData.append(key, config.data[key]);
-                  }
-                  if (!config.data.nonce) {
-                    formData.append('_nonce', elementorCommon.config.ajax.nonce);
-                  }
+        while (1) switch (_context.prev = _context.next) {
+          case 0:
+            return _context.abrupt("return", new Promise(function (resolve, reject) {
+              var formData = new FormData();
+              if (config.data) {
+                for (var key in config.data) {
+                  formData.append(key, config.data[key]);
                 }
-                var options = _objectSpread(_objectSpread({
-                  type: 'post',
-                  url: elementorCommon.config.ajax.url,
-                  headers: {},
-                  cache: false,
-                  contentType: false,
-                  processData: false
-                }, config), {}, {
-                  data: formData,
-                  success: function success(response) {
-                    resolve(response);
-                  },
-                  error: function error(_error) {
-                    reject(_error);
-                  }
-                });
-                jQuery.ajax(options);
-              }));
-            case 1:
-            case "end":
-              return _context.stop();
-          }
+                if (!config.data.nonce) {
+                  formData.append('_nonce', elementorCommon.config.ajax.nonce);
+                }
+              }
+              var options = _objectSpread(_objectSpread({
+                type: 'post',
+                url: elementorCommon.config.ajax.url,
+                headers: {},
+                cache: false,
+                contentType: false,
+                processData: false
+              }, config), {}, {
+                data: formData,
+                success: function success(response) {
+                  resolve(response);
+                },
+                error: function error(_error) {
+                  reject(_error);
+                }
+              });
+              jQuery.ajax(options);
+            }));
+          case 1:
+          case "end":
+            return _context.stop();
         }
       }, _callee);
     }));
@@ -2239,6 +2237,50 @@ Collapse.Content = _collapseContent.default;
 
 /***/ }),
 
+/***/ "../app/assets/js/molecules/go-pro-button.js":
+/*!***************************************************!*\
+  !*** ../app/assets/js/molecules/go-pro-button.js ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+/* provided dependency */ var PropTypes = __webpack_require__(/*! prop-types */ "../node_modules/prop-types/index.js");
+/* provided dependency */ var __ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n")["__"];
+
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ "../node_modules/@babel/runtime/helpers/interopRequireDefault.js");
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports["default"] = GoProButton;
+var _react = _interopRequireDefault(__webpack_require__(/*! react */ "react"));
+var _extends2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/extends */ "../node_modules/@babel/runtime/helpers/extends.js"));
+var _button = _interopRequireDefault(__webpack_require__(/*! elementor-app/ui/molecules/button */ "../app/assets/js/ui/molecules/button.js"));
+var _utils = __webpack_require__(/*! elementor-app/utils/utils.js */ "../app/assets/js/utils/utils.js");
+function GoProButton(props) {
+  var baseClassName = 'e-app-go-pro-button',
+    classes = [baseClassName, props.className];
+  return /*#__PURE__*/_react.default.createElement(_button.default, (0, _extends2.default)({}, props, {
+    className: (0, _utils.arrayToClassName)(classes),
+    text: props.text
+  }));
+}
+GoProButton.propTypes = {
+  className: PropTypes.string,
+  text: PropTypes.string
+};
+GoProButton.defaultProps = {
+  className: '',
+  variant: 'outlined',
+  size: 'sm',
+  color: 'cta',
+  target: '_blank',
+  rel: 'noopener noreferrer',
+  text: __('Upgrade Now', 'elementor')
+};
+
+/***/ }),
+
 /***/ "../app/assets/js/molecules/upload-file.js":
 /*!*************************************************!*\
   !*** ../app/assets/js/molecules/upload-file.js ***!
@@ -2718,6 +2760,7 @@ var _dragDrop = _interopRequireDefault(__webpack_require__(/*! ./ui/atoms/drag-d
 var _dropZone = _interopRequireDefault(__webpack_require__(/*! ./organisms/drop-zone */ "../app/assets/js/organisms/drop-zone.js"));
 var _errorBoundary = _interopRequireDefault(__webpack_require__(/*! ./organisms/error-boundary */ "../app/assets/js/organisms/error-boundary.js"));
 var _heading = _interopRequireDefault(__webpack_require__(/*! ./ui/atoms/heading */ "../app/assets/js/ui/atoms/heading.js"));
+var _goProButton = _interopRequireDefault(__webpack_require__(/*! ./molecules/go-pro-button */ "../app/assets/js/molecules/go-pro-button.js"));
 var _grid = _interopRequireDefault(__webpack_require__(/*! ./ui/grid/grid */ "../app/assets/js/ui/grid/grid.js"));
 var _icon = _interopRequireDefault(__webpack_require__(/*! ./ui/atoms/icon */ "../app/assets/js/ui/atoms/icon.js"));
 var _list = _interopRequireDefault(__webpack_require__(/*! ./ui/molecules/list */ "../app/assets/js/ui/molecules/list.js"));
@@ -2765,6 +2808,7 @@ var appUi = {
   DropZone: _dropZone.default,
   ErrorBoundary: _errorBoundary.default,
   Heading: _heading.default,
+  GoProButton: _goProButton.default,
   Grid: _grid.default,
   Icon: _icon.default,
   List: _list.default,
@@ -2852,6 +2896,9 @@ var _defineProperty2 = _interopRequireDefault(__webpack_require__(/*! @babel/run
 var Router = /*#__PURE__*/function () {
   function Router() {
     (0, _classCallCheck2.default)(this, Router);
+    /**
+     * @type {*[]}
+     */
     (0, _defineProperty2.default)(this, "routes", []);
     (0, _defineProperty2.default)(this, "history", null);
   }
@@ -5660,7 +5707,7 @@ function Promotion() {
         className: "e-site-editor__promotion-overlay__icon eicon-lock"
       }), /*#__PURE__*/_react.default.createElement(_button.default, {
         size: "sm",
-        color: "cta",
+        color: "brand",
         variant: "contained",
         text: __('Upgrade', 'elementor')
       })));
@@ -7456,9 +7503,7 @@ module.exports = wp.i18n;
 
 function _arrayLikeToArray(arr, len) {
   if (len == null || len > arr.length) len = arr.length;
-  for (var i = 0, arr2 = new Array(len); i < len; i++) {
-    arr2[i] = arr[i];
-  }
+  for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i];
   return arr2;
 }
 module.exports = _arrayLikeToArray, module.exports.__esModule = true, module.exports["default"] = module.exports;
@@ -7758,9 +7803,7 @@ function _iterableToArrayLimit(arr, i) {
       if (_x = (_i = _i.call(arr)).next, 0 === i) {
         if (Object(_i) !== _i) return;
         _n = !1;
-      } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0) {
-        ;
-      }
+      } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0);
     } catch (err) {
       _d = !0, _e = err;
     } finally {
@@ -7997,9 +8040,7 @@ function _regeneratorRuntime() {
       if (!isNaN(iterable.length)) {
         var i = -1,
           next = function next() {
-            for (; ++i < iterable.length;) {
-              if (hasOwn.call(iterable, i)) return next.value = iterable[i], next.done = !1, next;
-            }
+            for (; ++i < iterable.length;) if (hasOwn.call(iterable, i)) return next.value = iterable[i], next.done = !1, next;
             return next.value = undefined, next.done = !0, next;
           };
         return next.next = next;
@@ -8045,9 +8086,7 @@ function _regeneratorRuntime() {
   }), exports.keys = function (val) {
     var object = Object(val),
       keys = [];
-    for (var key in object) {
-      keys.push(key);
-    }
+    for (var key in object) keys.push(key);
     return keys.reverse(), function next() {
       for (; keys.length;) {
         var key = keys.pop();
@@ -8058,9 +8097,7 @@ function _regeneratorRuntime() {
   }, exports.values = values, Context.prototype = {
     constructor: Context,
     reset: function reset(skipTempReset) {
-      if (this.prev = 0, this.next = 0, this.sent = this._sent = undefined, this.done = !1, this.delegate = null, this.method = "next", this.arg = undefined, this.tryEntries.forEach(resetTryEntry), !skipTempReset) for (var name in this) {
-        "t" === name.charAt(0) && hasOwn.call(this, name) && !isNaN(+name.slice(1)) && (this[name] = undefined);
-      }
+      if (this.prev = 0, this.next = 0, this.sent = this._sent = undefined, this.done = !1, this.delegate = null, this.method = "next", this.arg = undefined, this.tryEntries.forEach(resetTryEntry), !skipTempReset) for (var name in this) "t" === name.charAt(0) && hasOwn.call(this, name) && !isNaN(+name.slice(1)) && (this[name] = undefined);
     },
     stop: function stop() {
       this.done = !0;

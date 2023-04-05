@@ -1,0 +1,2 @@
+<?php
+if(!defined('ABSPATH')){exit;}return['handle'=>'elementor-packages-editor','deps'=>['elementor-packages-locations','elementor-packages-store','elementor-packages-ui','elementor-packages-v1-adapters','react','react-dom','wp-i18n',],];

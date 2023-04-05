@@ -231,9 +231,7 @@ function _regeneratorRuntime() {
       if (!isNaN(iterable.length)) {
         var i = -1,
           next = function next() {
-            for (; ++i < iterable.length;) {
-              if (hasOwn.call(iterable, i)) return next.value = iterable[i], next.done = !1, next;
-            }
+            for (; ++i < iterable.length;) if (hasOwn.call(iterable, i)) return next.value = iterable[i], next.done = !1, next;
             return next.value = undefined, next.done = !0, next;
           };
         return next.next = next;
@@ -279,9 +277,7 @@ function _regeneratorRuntime() {
   }), exports.keys = function (val) {
     var object = Object(val),
       keys = [];
-    for (var key in object) {
-      keys.push(key);
-    }
+    for (var key in object) keys.push(key);
     return keys.reverse(), function next() {
       for (; keys.length;) {
         var key = keys.pop();
@@ -292,9 +288,7 @@ function _regeneratorRuntime() {
   }, exports.values = values, Context.prototype = {
     constructor: Context,
     reset: function reset(skipTempReset) {
-      if (this.prev = 0, this.next = 0, this.sent = this._sent = undefined, this.done = !1, this.delegate = null, this.method = "next", this.arg = undefined, this.tryEntries.forEach(resetTryEntry), !skipTempReset) for (var name in this) {
-        "t" === name.charAt(0) && hasOwn.call(this, name) && !isNaN(+name.slice(1)) && (this[name] = undefined);
-      }
+      if (this.prev = 0, this.next = 0, this.sent = this._sent = undefined, this.done = !1, this.delegate = null, this.method = "next", this.arg = undefined, this.tryEntries.forEach(resetTryEntry), !skipTempReset) for (var name in this) "t" === name.charAt(0) && hasOwn.call(this, name) && !isNaN(+name.slice(1)) && (this[name] = undefined);
     },
     stop: function stop() {
       this.done = !0;
@@ -468,7 +462,7 @@ try {
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if (chunkId === "modules_nested-tabs_assets_js_editor_module_js") return "54ec8bb1df28d799d240.bundle.js";
+/******/ 			if (chunkId === "modules_nested-tabs_assets_js_editor_module_js") return "82916c9aba5712bca47c.bundle.js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};
@@ -661,18 +655,16 @@ var _regenerator = _interopRequireDefault(__webpack_require__(/*! @babel/runtime
 var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ "../node_modules/@babel/runtime/helpers/asyncToGenerator.js"));
 elementorCommon.elements.$window.on('elementor/nested-element-type-loaded', /*#__PURE__*/(0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
   return _regenerator.default.wrap(function _callee$(_context) {
-    while (1) {
-      switch (_context.prev = _context.next) {
-        case 0:
-          _context.next = 2;
-          return __webpack_require__.e(/*! import() */ "modules_nested-tabs_assets_js_editor_module_js").then(__webpack_require__.bind(__webpack_require__, /*! ../editor/module */ "../modules/nested-tabs/assets/js/editor/module.js"));
-        case 2:
-          _context.t0 = _context.sent.default;
-          new _context.t0();
-        case 4:
-        case "end":
-          return _context.stop();
-      }
+    while (1) switch (_context.prev = _context.next) {
+      case 0:
+        _context.next = 2;
+        return __webpack_require__.e(/*! import() */ "modules_nested-tabs_assets_js_editor_module_js").then(__webpack_require__.bind(__webpack_require__, /*! ../editor/module */ "../modules/nested-tabs/assets/js/editor/module.js"));
+      case 2:
+        _context.t0 = _context.sent.default;
+        new _context.t0();
+      case 4:
+      case "end":
+        return _context.stop();
     }
   }, _callee);
 })));
